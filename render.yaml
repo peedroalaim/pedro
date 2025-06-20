@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: my-app-web
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      - key: DB_HOST
+        fromDatabase:
+          name: my-app-db
+          property: host
+      - key: DB_USER
+        fromDatabase:
+          name: my-app-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: my-app-db
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: my-app-db
+          property: database
+      - key: DB_PORT
+        fromDatabase:
+          name: my-app-db
+          property: port
+
+databases:
+  - name: my-app-db
+    databaseName: sandra
+    user: appuser
+    plan: free
+    engine: mysql
