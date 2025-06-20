@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: my-app-web
+    name: user-registration 
     runtime: node
     buildCommand: npm install
     startCommand: node server.js
@@ -35,4 +35,4 @@ databases:
     databaseName: sandra
     user: appuser
     plan: free
-    engine: mysql
+    
